@@ -50,8 +50,6 @@ x_train = x_train.astype('float32')/255.0 x_test = x_test.astype('float32')/255.
 Visulaizing Subsets of images in MNIST Dataset along with coressponding labels.
 fig=plt.figure(figsize=(5,3)) for i in range(20): ax =fig.add_subplot(2,10,i+1, xticks=[], yticks=[]) ax.imshow(np.squeeze(x_train[i]), cmap='Blues') ax.set_title(y_train[i])
 
-image
-
 # showing shape of single image
 img_shape= x_train.shape[1:] img_shape (28, 28, 1) BUILDING NEURAL NETWORK THAT CAN READ HANDWRITTEN DIGITS.
 
@@ -76,8 +74,6 @@ A Flatten layer that flattens the input images to a 1D array of length 784. A De
 Displaying Neural Network Model
 from tensorflow.keras.utils import plot_model plot_model(model, 'model.jpg', show_shapes = True)
 
-image
-
 Making Prediction on Model
 prediction = model(x_train[:1]).numpy() prediction array([[ 0.08819406, 0.02334788, 0.05840464, 0.06903427, 0.5252824 , -0.04078927, -0.22387438, -0.43524188, -0.27941954, -0.03243962]], dtype=float32)
 
@@ -96,8 +92,6 @@ probability_model = tf.keras.Sequential([ model,tf.keras.layers.Softmax() ]) pro
 
 Displaying a Grayscale Image
 img = x_train[12] plt.imshow(np.squeeze(img) ,cmap='gray') plt.show()
-
-image
 
 Predicting the Result
 img= img.reshape(1, img.shape[0],img.shape[1],img.shape[2]) p= model.predict([img]) print("predicted : {}".format(argmax(p))) 1/1 [==============================] - 0s 55ms/step predicted : 3
